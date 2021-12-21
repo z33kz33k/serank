@@ -1,0 +1,8 @@
+"""
+
+    serank
+    ~~~~~~
+
+    Unit tests.
+
+"""

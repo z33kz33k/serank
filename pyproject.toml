@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "serank"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["Piotr Mazik <mazik@fev.com>"]
 

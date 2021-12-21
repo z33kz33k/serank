@@ -60,10 +60,18 @@ class Season:
         return sum(e.rating.value * e.rating.votes for e in self.episodes) / self.votes
 
     @property
+    def avg_rating_str(self) -> str:
+        return f"{self.avg_rating:.2f}"
+
+    @property
     def avg_votes(self) -> int:
         """Return an average votes count per episode for this season.
         """
         return int(sum(e.rating.votes for e in self.episodes) / len(self.episodes))
+
+    @property
+    def avg_votes_str(self) -> str:
+        return f"{self.avg_votes:,}"
 
 
 @dataclass
@@ -84,8 +92,16 @@ class Series:
         return sum(s.avg_rating * s.votes for s in self.seasons) / self.votes
 
     @property
+    def avg_rating_str(self) -> str:
+        return f"{self.avg_rating:.2f}"
+
+    @property
     def avg_votes(self) -> int:
         return int(sum(s.avg_votes for s in self.seasons) / len(self.seasons))
+
+    @property
+    def avg_votes_str(self) -> str:
+        return f"{self.avg_votes:,}"
 
 
 def markup(url: str, headers=None) -> str:

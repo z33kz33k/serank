@@ -9,4 +9,4 @@
 from serank.imdb import Parser
 
 parser = Parser()
-parser.parse("Mr. Robot")
+parser.parse("Twin Peaks 2017")

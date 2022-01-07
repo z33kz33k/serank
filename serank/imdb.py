@@ -109,6 +109,8 @@ class SearchPageTitleList:
 class Parser:
     """Parse IMDb for TV series data.
     """
+    SEASONS_SANITY_THRESHOLD = 25
+
     def __init__(self, title_query="", lang="en") -> None:
         self._title, self._id = None, None
         self._data: List[Series] = []
@@ -144,8 +146,9 @@ class Parser:
                 break
 
             # sanity check
-            if index > 100:
-                print("Infinite loop encountered. Data retrieval terminated.")
+            if index > self.SEASONS_SANITY_THRESHOLD:
+                print(f"Sane seasons number threshold ({self.SEASONS_SANITY_THRESHOLD}) exceeded. "
+                      f"Data retrieval terminated.")
                 break
 
         return result
